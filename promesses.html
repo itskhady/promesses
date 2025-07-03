@@ -2,7 +2,7 @@
 <html lang="fr">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Promesses</title>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700;900&display=swap" rel="stylesheet" />
   <style>
@@ -55,6 +55,7 @@
       top: 1rem;
       left: 1rem;
       z-index: 2;
+      cursor: pointer;
     }
 
     .home-link:hover {
@@ -78,6 +79,7 @@
       position: absolute;
       transition: transform 0.3s ease, box-shadow 0.3s ease;
       box-sizing: border-box;
+      cursor: pointer;
     }
 
     .polaroid:hover {
@@ -164,6 +166,154 @@
       color: #ddd;
     }
 
+    /* MODALE PRINCIPALE */
+    #modal {
+      display: none;
+      position: fixed;
+      top: 0; left: 0; right: 0; bottom: 0;
+      background: rgba(0,0,0,0.3);
+      backdrop-filter: blur(5px);
+      z-index: 10000;
+      justify-content: center;
+      align-items: center;
+      padding: 1rem;
+      overflow-y: auto;
+    }
+    #modal.active {
+      display: flex;
+    }
+    #modal-content {
+      background: #fff;
+      color: #222;
+      max-width: 80vw;
+      width: 75vw;
+      max-height: 75vh;
+      border-radius: 12px;
+      display: flex;
+      flex-wrap: nowrap;
+      gap: 1rem;
+      position: relative;
+      padding: 1rem;
+      box-shadow: 0 0 20px rgba(0,0,0,0.3);
+      overflow: hidden;
+    }
+    #modal-close {
+      position: absolute;
+      top: 10px;
+      right: 10px;
+      background: transparent;
+      border: none;
+      font-size: 2rem;
+      cursor: pointer;
+      font-weight: bold;
+      color: #444;
+      z-index: 10;
+      line-height: 1;
+    }
+    #modal-gallery {
+      flex: 2 1 60%;
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+      gap: 10px;
+      max-height: 75vh;
+      overflow-y: auto;
+      cursor: default;
+    }
+    #modal-gallery img {
+      width: 100%;
+      border-radius: 8px;
+      object-fit: cover;
+      cursor: zoom-in;
+      transition: transform 0.3s ease;
+    }
+    #modal-gallery img:hover {
+      transform: scale(1.05);
+    }
+    #modal-text {
+      flex: 1 1 35%;
+      max-height: 75vh;
+      overflow-y: auto;
+      padding-left: 1rem;
+      font-size: 1rem;
+      color: #333;
+      user-select: text;
+      white-space: pre-line;
+      line-height: 1.6;
+    }
+    #modal-text h2 {
+      font-weight: 700;
+      font-size: 1.5rem;
+      margin-top: 0;
+      margin-bottom: 1rem;
+      color: #1c1c1c;
+      font-family: 'Inter', sans-serif;
+    }
+
+    /* LIGHTBOX */
+    #lightbox {
+      display: none;
+      position: fixed;
+      top:0; left:0; right:0; bottom:0;
+      background: rgba(0,0,0,0.9);
+      justify-content: center;
+      align-items: center;
+      z-index: 11000;
+      cursor: default;
+      flex-direction: column;
+      padding: 1rem;
+    }
+    #lightbox.active {
+      display: flex;
+    }
+    #lightbox img {
+      max-width: 90vw;
+      max-height: 80vh;
+      border-radius: 10px;
+      box-shadow: 0 0 30px rgba(255,255,255,0.4);
+      user-select: none;
+    }
+    #lightbox-close {
+      position: absolute;
+      top: 1rem;
+      right: 1rem;
+      font-size: 2rem;
+      color: #fff;
+      cursor: pointer;
+      z-index: 12000;
+      background: rgba(0,0,0,0.5);
+      border-radius: 50%;
+      width: 2.5rem;
+      height: 2.5rem;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+    #lightbox-nav {
+      margin-top: 1rem;
+      display: flex;
+      justify-content: center;
+      gap: 2rem;
+      user-select: none;
+    }
+    #lightbox-nav button {
+      background: rgba(255,255,255,0.2);
+      border: none;
+      padding: 0.5rem 1rem;
+      font-size: 1.5rem;
+      color: #fff;
+      border-radius: 8px;
+      cursor: pointer;
+      transition: background-color 0.2s ease;
+    }
+    #lightbox-nav button:hover:not(:disabled) {
+      background: rgba(255,255,255,0.5);
+    }
+    #lightbox-nav button:disabled {
+      opacity: 0.3;
+      cursor: not-allowed;
+    }
+
+    /* Responsive */
     @media (max-width: 768px) {
       .polaroid-gallery {
         margin-top: 3rem;
@@ -172,12 +322,23 @@
 
       .polaroid {
         width: 140px;
-        margin-bottom: 24px; /* plus d’espace vertical */
+        margin-bottom: 24px;
       }
 
       .btn-under {
         font-size: 0.8rem;
         padding: 0.3rem 0.8rem;
+      }
+
+      #modal-content {
+        flex-direction: column;
+        max-height: 80vh;
+      }
+
+      #modal-gallery, #modal-text {
+        flex: none;
+        max-height: 40vh;
+        padding-left: 0;
       }
     }
   </style>
@@ -185,8 +346,9 @@
 <body>
   <div class="overlay"></div>
   <a href="index.html" class="home-link">← Accueil</a>
+
   <section class="polaroid-gallery">
-    <div class="polaroid">
+    <div class="polaroid" data-promesse="PC1">
       <div class="photo-stack">
         <img src="assets/Pictures/PC1/IMG_1882.JPG" alt="Promesse 1a" loading="lazy" />
         <img src="assets/Pictures/PC1/IMG_1886.JPG" alt="Promesse 1b" loading="lazy" />
@@ -194,7 +356,7 @@
       </div>
       <a href="#" class="btn-under">AMADOU ET AMINA</a>
     </div>
-    <div class="polaroid">
+    <div class="polaroid" data-promesse="PC2">
       <div class="photo-stack">
         <img src="assets/Pictures/PC2/IMG_1887.JPG" alt="Promesse 2a" loading="lazy" />
         <img src="assets/Pictures/PC2/IMG_1888.JPG" alt="Promesse 2b" loading="lazy" />
@@ -202,7 +364,7 @@
       </div>
       <a href="#" class="btn-under">REVIENS ASTOU</a>
     </div>
-    <div class="polaroid">
+    <div class="polaroid" data-promesse="PC3">
       <div class="photo-stack">
         <img src="assets/Pictures/PC3/IMG_4803.JPG" alt="Promesse 3a" loading="lazy" />
         <img src="assets/Pictures/PC3/IMG_4804.JPG" alt="Promesse 3b" loading="lazy" />
@@ -210,7 +372,7 @@
       </div>
       <a href="#" class="btn-under">DANS L'OMBRE D'ALIOUNE</a>
     </div>
-    <div class="polaroid">
+    <div class="polaroid" data-promesse="PC4">
       <div class="photo-stack">
         <img src="assets/Pictures/PC4/IMG_4811.JPG" alt="Promesse 4a" loading="lazy" />
         <img src="assets/Pictures/PC4/IMG_4815.JPG" alt="Promesse 4b" loading="lazy" />
@@ -218,7 +380,7 @@
       </div>
       <a href="#" class="btn-under">LE SECRET DE NDEYE</a>
     </div>
-    <div class="polaroid">
+    <div class="polaroid" data-promesse="PC5">
       <div class="photo-stack">
         <img src="assets/Pictures/PC5/IMG_0026.JPG" alt="Promesse 5a" loading="lazy" />
         <img src="assets/Pictures/PC5/IMG_4820.JPG" alt="Promesse 5b" loading="lazy" />
@@ -235,9 +397,239 @@
     </p>
   </section>
 
-  <!-- Masonry CDN -->
+  <!-- MODALE PRINCIPALE -->
+  <div id="modal" role="dialog" aria-modal="true" aria-labelledby="modal-title">
+    <div id="modal-content">
+      <button id="modal-close" aria-label="Fermer la modale">&times;</button>
+      <div id="modal-gallery"></div>
+      <div id="modal-text"></div>
+    </div>
+  </div>
+
+  <!-- LIGHTBOX -->
+  <div id="lightbox" role="dialog" aria-modal="true" tabindex="-1">
+    <button id="lightbox-close" aria-label="Fermer la lightbox">&times;</button>
+    <img src="" alt="Image agrandie" />
+    <div id="lightbox-nav">
+      <button id="lightbox-prev" aria-label="Image précédente">&#8592;</button>
+      <button id="lightbox-next" aria-label="Image suivante">&#8594;</button>
+    </div>
+  </div>
+
   <script src="https://unpkg.com/masonry-layout@4/dist/masonry.pkgd.min.js"></script>
   <script>
+    const promessesData = {
+      PC1: {
+        title: "AMADOU ET AMINA",
+        images: [
+          'assets/Pictures/PC1/IMG_1882.JPG',
+          'assets/Pictures/PC1/IMG_1884.JPG',
+          'assets/Pictures/PC1/IMG_1886.JPG',
+          'assets/Pictures/PC1/IMG_6583.JPG'
+        ],
+        text: `
+Il y a les histoires qu’on vit, et puis celles qu’on garde en soi, même quand elles s’effilochent.
+Amadou et Amina, c’est peut-être ça : une histoire qu’on n’a jamais vraiment su vivre à voix haute. Une histoire tenue par le fil ténu de ce qui aurait pu être, de ce qui s’est dit à demi-mot, à demi-regard.
+
+Ils s’aiment, oui. Mais pas de l’amour flamboyant qu’on raconte dans les chansons. Leur amour à eux est discret, presque maladroit. Il est fait d’attentes qui se prolongent, de silences qui s’installent, de gestes retenus. Il est fait d’absence, de présence, de manque de cette langue étrange qu’on parle quand on ne sait plus vraiment comment s’aimer sans se faire mal.
+
+Il n’y a pas de héros ici. Pas de grands drames spectaculaires. Juste deux âmes qui se frôlent, se blessent sans le vouloir, s’attachent malgré elles. Deux personnes qui essaient de rester fidèles à l’autre, tout en se perdant un peu elles-mêmes.
+
+Et au cœur de tout ça : une promesse. Ou plutôt, le fantôme d’une promesse. Celle de ne jamais se lâcher. Celle de tout faire à deux. Une promesse simple, belle, et peut-être trop grande pour eux.
+
+Lire Amadou et Amina, ce n’est pas chercher une fin. C’est marcher dans un couloir d’émotions, parfois confuses, souvent vraies. C’est regarder comment l’amour se transforme, s’efface, résiste, ou se tait. C’est écouter ce que les mots ne disent pas ou plus.
+`
+      },
+      PC2: {
+        title: "REVIENS ASTOU",
+        images: [
+          'assets/Pictures/PC2/IMG_1887.JPG',
+          'assets/Pictures/PC2/IMG_1888.JPG',
+          'assets/Pictures/PC2/IMG_1890.JPG',
+          'assets/Pictures/PC2/IMG_6020.JPG',
+          'assets/Pictures/PC2/IMG_8754.JPG'
+        ],
+        text: `
+L’histoire d’Astou, ce n’est pas celle d’une mort. C’est celle de ce qui reste après.
+
+C’est l’histoire de celles et ceux qui continuent à vivre avec une moitié en moins, à inventer des rituels pour survivre à la douleur, à se répéter les mêmes phrases encore et encore pour tenter de rendre le réel supportable.
+
+Il y avait une liste. Une liste de choses à faire. Des promesses entre ami·e·s, griffonnées comme des rêves. Une maison en Casamance, un tour d’Afrique, un livre à cinq mains, une fête sans raison. Cette liste, c’est un peu leur serment d’éternité. Leur manière à eux de se dire : on ne mourra jamais, pas tant qu’on rira encore.
+
+Et puis, Astou est partie.
+
+Mais l’histoire ne s’arrête pas là.
+
+Car autour d’elle, la vie continue. Une vie cabossée par l’absence, oui, mais traversée d’amour. L’histoire d’Astou, c’est aussi l’histoire de ceux qui l’ont aimée. De ce qu’ils deviennent. De ce qu’ils refusent d’oublier. De cette phrase, si simple, qui résonne : « Tu étais riche d’enfance que tu n’as jamais laissée mourir. »
+
+Reviens Astou…
+`
+      },
+      PC3: {
+        title: "DANS L'OMBRE D'ALIOUNE",
+        images: [
+          'assets/Pictures/PC3/IMG_4803.JPG',
+          'assets/Pictures/PC3/IMG_4804.JPG',
+          'assets/Pictures/PC3/IMG_4808.JPG',
+          'assets/Pictures/PC3/IMG_5919.JPG'
+        ],
+        text: `
+Dans l’ombre d’Alioune, c’est l’histoire d’un silence pesant, d’un amour empêché par les secrets et les blessures.
+
+Alioune est cet homme qui porte son passé comme une cicatrice, une présence qui hante les souvenirs d’une enfance volée.
+
+Les silences entre les mots racontent plus que tout. Les gestes se croisent sans se toucher vraiment.
+
+C’est un récit de douleur, de pardon qui se cherche et de blessures qui ne se referment pas facilement.
+
+Un chemin d’ombres et de lumière, d’absence et de présence.
+`
+      },
+      PC4: {
+        title: "LE SECRET DE NDEYE",
+        images: [
+          'assets/Pictures/PC4/IMG_4811.JPG',
+          'assets/Pictures/PC4/IMG_4815.JPG',
+          'assets/Pictures/PC4/IMG_5233.JPG'
+        ],
+        text: `
+Le secret de Ndeye, c’est cette force silencieuse, cette résistance discrète face aux tempêtes de la vie.
+
+Ndeye cache derrière son regard une histoire faite de combats et d’espérance.
+
+Son secret, c’est peut-être cette capacité à sourire même quand tout semble s’effondrer.
+
+Une histoire de résilience, de luttes intimes, et d’un amour qui ne s’explique pas mais qui se vit intensément.
+
+Ce secret, c’est une promesse de vie au milieu des ombres.
+`
+      },
+      PC5: {
+        title: "FATY ET OULY",
+        images: [
+          'assets/Pictures/PC5/IMG_0026.JPG',
+          'assets/Pictures/PC5/IMG_4820.JPG',
+          'assets/Pictures/PC5/IMG_4821.JPG',
+          'assets/Pictures/PC5/IMG_4823.JPG'
+        ],
+        text: `
+Faty et Ouly, c’est la douceur d’une complicité, la tendresse d’un lien qui défie le temps.
+
+Leur histoire est faite de petits gestes, de regards échangés, de silences partagés.
+
+C’est une promesse d’amitié et d’amour qui se construit pas à pas, jour après jour.
+
+Une histoire simple, belle, et précieuse, comme un secret bien gardé entre deux âmes.
+`
+      }
+    };
+
+    const modal = document.getElementById('modal');
+    const modalGallery = document.getElementById('modal-gallery');
+    const modalText = document.getElementById('modal-text');
+    const modalClose = document.getElementById('modal-close');
+
+    const lightbox = document.getElementById('lightbox');
+    const lightboxImg = lightbox.querySelector('img');
+    const lightboxClose = document.getElementById('lightbox-close');
+    const lightboxPrev = document.getElementById('lightbox-prev');
+    const lightboxNext = document.getElementById('lightbox-next');
+
+    let currentImages = [];
+    let currentIndex = 0;
+
+    function updateLightboxNavButtons() {
+      lightboxPrev.disabled = (currentIndex === 0);
+      lightboxNext.disabled = (currentIndex === currentImages.length - 1);
+    }
+
+    function openLightbox(index) {
+      currentIndex = index;
+      lightboxImg.src = currentImages[currentIndex];
+      lightbox.classList.add('active');
+      document.body.style.overflow = 'hidden';
+      lightbox.focus();
+      updateLightboxNavButtons();
+    }
+
+    function closeLightbox() {
+      lightbox.classList.remove('active');
+      document.body.style.overflow = '';
+    }
+
+    function showPrev() {
+      if (currentIndex > 0) {
+        currentIndex--;
+        lightboxImg.src = currentImages[currentIndex];
+        updateLightboxNavButtons();
+      }
+    }
+
+    function showNext() {
+      if (currentIndex < currentImages.length - 1) {
+        currentIndex++;
+        lightboxImg.src = currentImages[currentIndex];
+        updateLightboxNavButtons();
+      }
+    }
+
+    document.querySelectorAll('.polaroid').forEach(p => {
+      p.addEventListener('click', () => {
+        const key = p.getAttribute('data-promesse');
+        if (!key || !promessesData[key]) return;
+
+        modalGallery.innerHTML = '';
+        modalText.innerHTML = '';
+
+        currentImages = promessesData[key].images;
+
+        promessesData[key].images.forEach((src, i) => {
+          const img = document.createElement('img');
+          img.src = src;
+          img.alt = `Image de ${key}`;
+          img.loading = 'lazy';
+          img.addEventListener('click', () => openLightbox(i));
+          modalGallery.appendChild(img);
+        });
+
+        modalText.innerHTML = `<h2>${promessesData[key].title}</h2>${promessesData[key].text.replace(/\n/g, '<br>')}`;
+
+        modal.classList.add('active');
+        document.body.style.overflow = 'hidden';
+      });
+    });
+
+    modalClose.addEventListener('click', () => {
+      modal.classList.remove('active');
+      document.body.style.overflow = '';
+    });
+
+    modal.addEventListener('click', e => {
+      if (e.target === modal) {
+        modal.classList.remove('active');
+        document.body.style.overflow = '';
+      }
+    });
+
+    lightboxClose.addEventListener('click', closeLightbox);
+
+    lightbox.addEventListener('click', e => {
+      if (e.target === lightbox) {
+        closeLightbox();
+      }
+    });
+
+    document.addEventListener('keydown', e => {
+      if (!lightbox.classList.contains('active')) return;
+      if (e.key === "Escape") {
+        closeLightbox();
+      } else if (e.key === "ArrowLeft") {
+        showPrev();
+      } else if (e.key === "ArrowRight") {
+        showNext();
+      }
+    });
+
     window.addEventListener('load', () => {
       const grid = document.querySelector('.polaroid-gallery');
       const isMobile = window.innerWidth <= 768;
