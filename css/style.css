@@ -1,4 +1,8 @@
 /* style.css */
+button {
+  -webkit-appearance: none;
+  appearance: none;
+}
 
 /* Variables globales */
 :root {
