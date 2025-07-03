@@ -1,13 +1,9 @@
 /* style.css */
-button {
-  -webkit-appearance: none;
-  appearance: none;
-}
 
 /* Variables globales */
 :root {
   --text-color: #fff;
-  --accent-color: #ff00ff;
+  --accent-color: #fff;
 }
 
 /* Reset complet */
@@ -109,7 +105,7 @@ p.tagline {
   transition: background-color 0.3s;
 }
 .btn-buy:hover {
-  background-color: #e600e6;
+  background-color: #fff;
 }
 
 /* Footer */
@@ -124,7 +120,7 @@ p.tagline {
 
 /* === ABOUT SECTION === */
 .about-section {
-  background-color: #4da57a;
+  background-color: #040404;
   padding: 4rem 1rem;
   color: #fff;
 }
@@ -264,7 +260,7 @@ p.tagline {
   bottom: 100px;    /* juste au-dessus des miniatures */
   left: 50%;
   transform: translateX(-50%);
-  color: #ff5722;
+  color: #fff;
   font-size: 1.75rem;
   font-weight: 900;
   white-space: nowrap;
@@ -297,7 +293,7 @@ p.tagline {
 }
 #reviens-astou .slider-thumbs img.active-thumb {
   opacity: 1;
-  border: 2px solid #ff5722;
+  border: 2px solid #fff;
 }
 
 /* === MAMA’S COUCH VERSION STACKED/GRID === */
@@ -313,8 +309,8 @@ p.tagline {
 .mamas-title {
   font-size: 8vw;
   font-weight: 900;
-  color: #E63900;
-  text-shadow: 2px 2px #4DA57A;
+  color: #010101;
+  /* text-shadow: 2px 2px #4DA57A; */
   margin-bottom: 1rem;
 }
 .mamas-tagline {
@@ -434,7 +430,7 @@ p.tagline {
   bottom: 100px;    /* juste au-dessus des miniatures */
   left: 50%;
   transform: translateX(-50%);
-  color: #ff5722;
+  color: #fff;
   font-size: 1.75rem;
   font-weight: 900;
   white-space: nowrap;
@@ -761,5 +757,5 @@ p.tagline {
   transition: background-color 0.3s;
 }
 .btn-ecrits:hover {
-  background-color: #e600e6;
+  background-color: #fff;
 }
