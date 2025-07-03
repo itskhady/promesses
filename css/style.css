@@ -142,7 +142,8 @@ p.tagline {
 }
 
 /* === MARQUEE DÉFILANTE === */
-.scrolling-banner {
+/* === BANDE DÉFILANTE CONTINUE === */
+.scrolling-banner-continuous {
   width: 100%;
   overflow: hidden;
   background-color: #000;
@@ -150,7 +151,8 @@ p.tagline {
   border-top: 2px solid #fff;
   border-bottom: 2px solid #fff;
 }
-.scrolling-text {
+
+.scrolling-text-continuous {
   display: inline-block;
   white-space: nowrap;
   animation: marquee 15s linear infinite;
@@ -160,6 +162,7 @@ p.tagline {
   text-transform: uppercase;
   letter-spacing: 2px;
 }
+
 @keyframes marquee {
   0%   { transform: translateX(100%); }
   100% { transform: translateX(-100%); }
@@ -337,4 +340,152 @@ p.tagline {
     grid-template-columns: repeat(4, 1fr);
     gap: 1rem;
   }
+}
+
+/* ==== Le secret de Ndeye ==== */
+#secret-de-ndeye {
+  display: block;
+  padding: 4rem 1rem;
+  background-color: #000;
+  color: #fff;
+  min-height: 80vh;
+}
+#secret-de-ndeye h2 {
+  font-size: 8vw;
+  font-weight: 900;
+  margin-bottom: 2rem;
+  line-height: 1.1;
+}
+#secret-de-ndeye .promises-grid {
+  display: grid;
+  gap: 1rem;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+}
+@media (max-width: 600px) {
+  #secret-de-ndeye .promises-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  #secret-de-ndeye h2 {
+    font-size: 10vw;
+  }
+}
+#secret-de-ndeye .promises-grid img {
+  width: 100%;
+  height: auto;
+  object-fit: cover;
+  border-radius: 8px;
+}
+
+/* === SECTION “FATY ET OULI” SLIDER === */
+#faty-et-ouli {
+  position: relative;
+  width: 100%;
+  height: 100vh;
+  background: #F3DDAE;  /* ou la couleur de fond souhaitée */
+  overflow: hidden;
+}
+
+/* Slider full-screen */
+#faty-et-ouli .slider-main,
+#faty-et-ouli .slider-main .swiper-wrapper,
+#faty-et-ouli .slider-main .swiper-slide {
+  width: 100%;
+  height: 100%;
+}
+#faty-et-ouli .slider-main img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center center;
+  object-position: center -10cm;
+}
+
+/* Pagination (dots) – mobile */
+#faty-et-ouli .swiper-pagination {
+  position: absolute;
+  bottom: 60px;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 10;
+}
+@media (min-width: 768px) {
+  #faty-et-ouli .swiper-pagination {
+    display: none;
+  }
+}
+
+/* Légende */
+#faty-et-ouli .slide-caption {
+  position: absolute;
+  bottom: 100px;
+  left: 50%;
+  transform: translateX(-50%);
+  color: #ff5722;
+  font-size: 1.75rem;
+  font-weight: 900;
+  z-index: 10;
+  white-space: nowrap;
+}
+
+/* Miniatures desktop */
+#faty-et-ouli .slider-thumbs {
+  display: none;
+  position: absolute;
+  bottom: 20px;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 10;
+}
+@media (min-width: 768px) {
+  #faty-et-ouli .slider-thumbs {
+    display: block;
+    width: auto;
+  }
+  #faty-et-ouli .slider-thumbs .swiper-wrapper {
+    display: flex;
+    gap: 8px;
+  }
+  #faty-et-ouli .slider-thumbs .swiper-slide {
+    width: 60px;
+    height: 60px;
+    opacity: 0.4;
+    cursor: pointer;
+    transition: opacity 0.3s, border 0.3s;
+  }
+  #faty-et-ouli .slider-thumbs .swiper-slide-thumb-active {
+    opacity: 1;
+    border: 2px solid #ff5722;
+  }
+  #faty-et-ouli .slider-thumbs img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+}
+
+
+/* === FOOTER RÉSEAUX SOCIAUX SIMPLIFIÉ === */
+.footer-social {
+  background-color: #111;
+  padding: 2rem 1rem;
+  color: #fff;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1rem;
+}
+.footer-social .social-links {
+  display: flex;
+  gap: 1.5rem;
+}
+.footer-social .social-links a {
+  color: var(--accent-color);
+  font-size: 2rem;
+  transition: opacity 0.3s;
+}
+.footer-social .social-links a:hover {
+  opacity: 0.7;
+}
+.footer-social .contact-email {
+  font-size: 1rem;
 }
