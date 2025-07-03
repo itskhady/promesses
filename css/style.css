@@ -32,14 +32,18 @@ section {
 }
 
 /* === HERO SECTION === */
+/* === HERO SECTION === */
 .hero-section {
-  background: url('../assets/Pictures/PC1/IMG_1882.JPG') no-repeat center center fixed;
+  /* on enlève le "fixed" */
+  background: url('../assets/Pictures/PC1/IMG_1882.JPG') no-repeat center center;
   background-size: cover;
-  min-height: 100vh;
+  background-attachment: scroll;  /* explicite, mais en pratique c'est le comportement par défaut */
+  height: 100vh;                  /* on s'assure qu'il couvre tout l'écran */
   display: flex;
   align-items: center;
   justify-content: center;
 }
+
 
 /* Conteneur animé */
 .container {
