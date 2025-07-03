@@ -573,6 +573,31 @@ Une histoire simple, belle, et précieuse, comme un secret bien gardé entre deu
       }
     }
 
+    // Gestion swipe tactile
+    let touchStartX = 0;
+    let touchEndX = 0;
+
+    lightbox.addEventListener('touchstart', e => {
+      touchStartX = e.changedTouches[0].screenX;
+    }, false);
+
+    lightbox.addEventListener('touchend', e => {
+      touchEndX = e.changedTouches[0].screenX;
+      handleGesture();
+    }, false);
+
+    function handleGesture() {
+      const swipeThreshold = 50; // seuil en pixels
+      if (touchEndX < touchStartX - swipeThreshold) {
+        // swipe gauche
+        showNext();
+      }
+      else if (touchEndX > touchStartX + swipeThreshold) {
+        // swipe droite
+        showPrev();
+      }
+    }
+
     document.querySelectorAll('.polaroid').forEach(p => {
       p.addEventListener('click', () => {
         const key = p.getAttribute('data-promesse');
@@ -629,6 +654,9 @@ Une histoire simple, belle, et précieuse, comme un secret bien gardé entre deu
         showNext();
       }
     });
+
+    lightboxPrev.addEventListener('click', showPrev);
+    lightboxNext.addEventListener('click', showNext);
 
     window.addEventListener('load', () => {
       const grid = document.querySelector('.polaroid-gallery');
