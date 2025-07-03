@@ -6,25 +6,159 @@
   <title>Promesses</title>
   <link rel="stylesheet" href="css/style.css" />
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700;900&display=swap" rel="stylesheet" />
+  <style>
+    body {
+      background: #ffffff !important;
+      color: #000000 !important;
+      margin: 0;
+      padding: 4rem;
+      font-family: 'Inter', sans-serif;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      min-height: 100vh;
+      position: relative;
+    }
+
+    .home-link {
+      position: absolute;
+      top: 1rem;
+      left: 1rem;
+      background-color: #333;
+      color: #fff;
+      padding: 0.5rem 1rem;
+      border-radius: 20px;
+      text-decoration: none;
+      font-size: 0.9rem;
+      font-weight: bold;
+      transition: background-color 0.3s ease;
+    }
+
+    .home-link:hover {
+      background-color: #555;
+    }
+
+    .polaroid-gallery {
+      display: flex;
+      justify-content: center;
+      align-items: flex-start;
+      flex-wrap: wrap;
+      gap: 6rem;
+      max-width: 1400px;
+    }
+
+    .polaroid {
+      padding: 0;
+      width: 240px;
+      text-align: center;
+      position: relative;
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+
+    .polaroid:hover {
+      transform: scale(1.02);
+      box-shadow: 0 12px 24px rgba(0, 0, 0, 0.2);
+    }
+
+    .photo-stack {
+      position: relative;
+      width: 100%;
+      height: auto;
+      aspect-ratio: 3/4;
+      margin-bottom: 2rem;
+    }
+
+    .photo-stack img {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      border: 4px solid #fff;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+      transition: transform 0.3s ease;
+    }
+
+    .photo-stack img:nth-child(1) {
+      transform: rotate(-10deg) translate(-8px, 5px);
+      z-index: 1;
+    }
+
+    .photo-stack img:nth-child(2) {
+      transform: rotate(6deg) translate(6px, -3px);
+      z-index: 2;
+    }
+
+    .photo-stack img:nth-child(3) {
+      transform: rotate(-2deg) translate(3px, 2px);
+      z-index: 3;
+    }
+
+    .btn-under {
+      display: inline-block;
+      font-size: 0.95rem;
+      font-weight: 600;
+      background-color: #444;
+      color: #fff;
+      border: none;
+      padding: 0.4rem 1.2rem;
+      border-radius: 30px;
+      text-decoration: none;
+      transition: all 0.3s ease;
+      margin-top: 1.5rem;
+    }
+
+    .btn-under:hover {
+      background-color: #666;
+      transform: scale(1.06);
+      box-shadow: 0 6px 14px rgba(0, 0, 0, 0.15);
+    }
+  </style>
 </head>
 <body>
-  <div class="container">
-    <div class="logo">PROMESSES</div>
-    <h1>LISTE DES PROMESSES</h1>
-    <p class="tagline">
-      Voici les promesses consumées, exposées en fragments de vérité et d’émotion.
-    </p>
-    <a href="index.html" class="btn-buy">RETOUR</a>
-    <div class="footer">&copy; Khadyetou SILMAN</div>
-  </div>
-
-  <section class="about-section">
-    <h2>Extraits</h2>
-    <p>
-      - Je te promets de toujours écouter, même dans le silence.<br>
-      - Je te promets de ne jamais oublier ce qu’on ne s’est pas dit.<br>
-      - Je te promets la mer, même si je n’ai que mes larmes à offrir.
-    </p>
+  <a href="index.html" class="home-link">← Accueil</a>
+  <section class="polaroid-gallery">
+    <div class="polaroid">
+      <div class="photo-stack">
+        <img src="assets/Pictures/PC1/IMG_1882.JPG" alt="Promesse 1a">
+        <img src="assets/Pictures/PC1/IMG_1886.JPG" alt="Promesse 1b">
+        <img src="assets/Pictures/PC1/IMG_1884.JPG" alt="Promesse 1c">
+      </div>
+      <a href="#" class="btn-under">AMADOU ET AMINA</a>
+    </div>
+    <div class="polaroid">
+      <div class="photo-stack">
+        <img src="assets/Pictures/PC2/IMG_1887.JPG" alt="Promesse 2a">
+        <img src="assets/Pictures/PC2/IMG_1888.JPG" alt="Promesse 2b">
+        <img src="assets/Pictures/PC2/IMG_1890.JPG" alt="Promesse 2c">
+      </div>
+      <a href="#" class="btn-under">REVIENS ASTOU</a>
+    </div>
+    <div class="polaroid">
+      <div class="photo-stack">
+        <img src="assets/Pictures/PC3/IMG_4803.JPG" alt="Promesse 3a">
+        <img src="assets/Pictures/PC3/IMG_4804.JPG" alt="Promesse 3b">
+        <img src="assets/Pictures/PC3/IMG_4808.JPG" alt="Promesse 3c">
+      </div>
+      <a href="#" class="btn-under">DANS L'OMBRE D'ALIOUNE</a>
+    </div>
+    <div class="polaroid">
+      <div class="photo-stack">
+        <img src="assets/Pictures/PC4/IMG_4811.JPG" alt="Promesse 4a">
+        <img src="assets/Pictures/PC4/IMG_4815.JPG" alt="Promesse 4b">
+        <img src="assets/Pictures/PC4/IMG_5233.JPG" alt="Promesse 4c">
+      </div>
+      <a href="#" class="btn-under">LE SECRET DE NDEYE</a>
+    </div>
+    <div class="polaroid">
+      <div class="photo-stack">
+        <img src="assets/Pictures/PC5/IMG_0026.JPG" alt="Promesse 5a">
+        <img src="assets/Pictures/PC5/IMG_4820.JPG" alt="Promesse 5b">
+        <img src="assets/Pictures/PC5/IMG_4821.JPG" alt="Promesse 5c">
+      </div>
+      <a href="#" class="btn-under">FATY ET OULY</a>
+    </div>
   </section>
 </body>
 </html>
