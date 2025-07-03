@@ -1,25 +1,33 @@
 /* ========== style.css ========== */
 
-/* Variables */
+/* Variables globales */
 :root {
   --text-color: #fff;
   --accent-color: #ff00ff;
 }
 
-/* Reset */
+/* Reset et boîte */
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
 }
-html, body {
+html,
+body {
   height: 100%;
   overflow-x: hidden;
 }
+
+/* Corps — fond noir généralisé */
 body {
+  background-color: #000;
   color: var(--text-color);
   font-family: 'Inter', sans-serif;
   text-align: center;
+}
+
+/* Annule tout margin par défaut sur <section> */
+section {
   margin: 0;
 }
 
@@ -47,7 +55,10 @@ body {
   animation-delay: 0.2s;
 }
 @keyframes fadeInUp {
-  to { opacity: 1; transform: none; }
+  to {
+    opacity: 1;
+    transform: none;
+  }
 }
 
 /* Logo */
@@ -57,7 +68,7 @@ body {
   letter-spacing: 2px;
   color: var(--accent-color);
   margin-bottom: 1.5rem;
-  background-color: rgba(0,0,0,0.6);
+  background-color: rgba(0, 0, 0, 0.6);
   padding: 0.5rem 1rem;
   border-radius: 4px;
 }
@@ -68,7 +79,7 @@ h1 {
   font-weight: 900;
   line-height: 1.1;
   margin-bottom: 1.5rem;
-  background-color: rgba(0,0,0,0.6);
+  background-color: rgba(0, 0, 0, 0.6);
   padding: 0.5rem 1rem;
   border-radius: 4px;
 }
@@ -78,13 +89,13 @@ p.tagline {
   font-size: 1.5rem;
   color: #ddd;
   max-width: 600px;
-  background-color: rgba(0,0,0,0.6);
+  background-color: rgba(0, 0, 0, 0.6);
   padding: 0.5rem 1rem;
   border-radius: 4px;
   margin-bottom: 1.5rem;
 }
 
-/* Bouton */
+/* Bouton principal */
 .btn-buy {
   font-size: 1.5rem;
   font-weight: bold;
@@ -100,19 +111,19 @@ p.tagline {
   background-color: #e600e6;
 }
 
-/* Footer */
+/* Pied de page */
 .footer {
   margin-top: 3rem;
   font-size: 1rem;
   color: #ccc;
-  background-color: rgba(0,0,0,0.6);
+  background-color: rgba(0, 0, 0, 0.6);
   padding: 0.25rem 0.75rem;
   border-radius: 4px;
 }
 
 /* === ABOUT SECTION === */
 .about-section {
-  background-color: #4DA57A;  /* <-- ta couleur ici */
+  background-color: #4da57a;
   padding: 4rem 1rem;
   color: #fff;
 }
@@ -126,48 +137,11 @@ p.tagline {
   color: #f0f0f0;
 }
 
-/* Responsive titre héro */
+/* Responsive h1 pour mobile */
 @media (max-width: 600px) {
   h1 {
     font-size: 10vw;
   }
-}
-
-/* === SECTION “LES PROMESSES” === */
-.promises-section {
-  display: none;
-  padding: 4rem 1rem;
-  min-height: 80vh;
-  background-color: #000;
-  color: #fff;
-}
-.promises-section h2 {
-  font-size: 8vw;
-  font-weight: 900;
-  margin-bottom: 2rem;
-  line-height: 1.1;
-}
-
-/* Grille responsive */
-.promises-grid {
-  display: grid;
-  gap: 1rem;
-  width: 100%;
-  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-}
-@media (max-width: 600px) {
-  .promises-grid {
-    grid-template-columns: repeat(2, 1fr);
-  }
-  .promises-section h2 {
-    font-size: 10vw;
-  }
-}
-.promises-grid img {
-  width: 100%;
-  height: auto;
-  object-fit: cover;
-  border-radius: 8px;
 }
 
 /* === BANDE DÉFILANTE === */
@@ -178,8 +152,8 @@ p.tagline {
   padding: 1rem 0;
   border-top: 2px solid #fff;
   border-bottom: 2px solid #fff;
+  margin-bottom: 0;
 }
-
 .scrolling-text {
   display: inline-block;
   white-space: nowrap;
@@ -190,8 +164,50 @@ p.tagline {
   text-transform: uppercase;
   letter-spacing: 2px;
 }
-
 @keyframes marquee {
-  0%   { transform: translateX(100%); }
-  100% { transform: translateX(-100%); }
+  0% {
+    transform: translateX(100%);
+  }
+  100% {
+    transform: translateX(-100%);
+  }
+}
+
+/* === SECTION “LES PROMESSES” VISIBLE === */
+.promises-section,
+.amadou-amina {
+  display: block;
+  padding: 4rem 1rem;
+  min-height: 80vh;
+  background-color: #000;
+  color: #fff;
+  margin-top: 0;
+}
+.promises-section h2,
+.amadou-amina h2 {
+  font-size: 8vw;
+  font-weight: 900;
+  margin-bottom: 2rem;
+  line-height: 1.1;
+}
+.promises-grid {
+  display: grid;
+  gap: 1rem;
+  width: 100%;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+}
+@media (max-width: 600px) {
+  .promises-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  .promises-section h2,
+  .amadou-amina h2 {
+    font-size: 10vw;
+  }
+}
+.promises-grid img {
+  width: 100%;
+  height: auto;
+  object-fit: cover;
+  border-radius: 8px;
 }

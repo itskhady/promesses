@@ -5,10 +5,13 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>PROMESSES CONSUMÉES</title>
   <link rel="stylesheet" href="css/style.css" />
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700;900&display=swap" rel="stylesheet" />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700;900&display=swap"
+    rel="stylesheet"
+  />
 </head>
 <body>
-  <!-- HERO -->
+  <!-- HERO SECTION -->
   <section class="hero-section">
     <div class="container">
       <div class="logo">EXPOSITION</div>
@@ -22,50 +25,40 @@
     </div>
   </section>
 
-  <!-- ABOUT -->
+  <!-- ABOUT SECTION -->
   <section class="about-section">
     <h2>About UNWELL</h2>
     <p>
-      UNWELL is not your average beverage brand. We craft functional drinks that embrace the complexity of human emotion...
+      UNWELL is not your average beverage brand. We craft functional drinks that embrace the complexity
+      of human emotion...
     </p>
   </section>
 
-  <!-- === BANDE DÉFILANTE “PROMESSES CONSUMÉES” === -->
-<div class="scrolling-banner">
-  <div class="scrolling-text">
-    <span>
-      PROMESSES CONSUMÉES &nbsp; &nbsp; PROMESSES CONSUMÉES &nbsp; &nbsp; PROMESSES CONSUMÉES &nbsp; &nbsp;
-    </span>
+  <!-- MARQUEE DÉFILANTE -->
+  <div class="scrolling-banner">
+    <div class="scrolling-text">
+      <span>PROMESSES CONSUMÉES  PROMESSES CONSUMÉES  PROMESSES CONSUMÉES  </span>
+    </div>
   </div>
-</div>
 
-<!-- === SECTION AMADOU & AMINA === -->
-<section id="amadou-et-amina" class="amadou-amina">
-  <!-- ton contenu… -->
-</section>
-
-  <!-- PROMESSES (cachée au chargement puis affichée) -->
-  <section id="promises-section" class="promises-section">
-    <h2>AMADOU ET AMINA</h2>
+  <!-- SECTION “LES PROMESSES” VISIBLE -->
+  <section id="amadou-et-amina" class="promises-section amadou-amina">
+    <h2>LES PROMESSES</h2>
     <div class="promises-grid">
-      <img src="assets/Pictures/PC1/IMG_1882.JPG" alt="Image 1">
-      <img src="assets/Pictures/PC1/IMG_6583.JPG" alt="Image 2">
-      <img src="assets/Pictures/PC1/IMG_1886.JPG" alt="Image 3">
-      <img src="assets/Pictures/PC1/IMG_1884.JPG" alt="Image 4">
-      <!-- + d’images si besoin -->
+      <img src="assets/Pictures/PC1/IMG_1882.JPG" alt="Image 1" />
+      <img src="assets/Pictures/PC1/IMG_6583.JPG" alt="Image 2" />
+      <img src="assets/Pictures/PC1/IMG_1886.JPG" alt="Image 3" />
+      <img src="assets/Pictures/PC1/IMG_1884.JPG" alt="Image 4" />
+      <!-- Ajoute d’autres <img> si nécessaire -->
     </div>
   </section>
 
   <script>
-    // cache la section au chargement
-    const sec = document.getElementById('promises-section');
-    sec.style.display = 'none';
-
-    // au clic, affiche et scroll
-    document.querySelector('.btn-buy').addEventListener('click', e => {
+    document.querySelector('.btn-buy').addEventListener('click', function (e) {
       e.preventDefault();
-      sec.style.display = 'block';
-      sec.scrollIntoView({ behavior: 'smooth' });
+      document
+        .getElementById('amadou-et-amina')
+        .scrollIntoView({ behavior: 'smooth' });
     });
   </script>
 </body>
