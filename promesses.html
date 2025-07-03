@@ -7,40 +7,40 @@
   <link rel="stylesheet" href="css/style.css" />
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700;900&display=swap" rel="stylesheet" />
   <style>
- body {
-  position: relative;         /* pour que ::before soit relatif */
-  height: 100%;
-  margin: 0;
-  padding: 2rem 1rem;
-  font-family: 'Inter', sans-serif;
-  color: #ffffff;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  box-sizing: border-box;
+    body {
+      position: relative;
+      height: 100vh;
+      margin: 0;
+      padding: 2rem 1rem;
+      font-family: 'Inter', sans-serif;
+      color: #fff;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      box-sizing: border-box;
 
-  background-image: url('assets/Pictures/PC1/IMG_1882.JPG'); /* chemin simplifié */
-  background-repeat: no-repeat;
-  background-position: center center;
-  background-size: cover;
-  background-attachment: scroll; /* important pour mobile */
-}
+      background-image: url('assets/Pictures/PC1/IMG_1882.JPG');
+      background-repeat: no-repeat;
+      background-position: center center;
+      background-size: cover;
+      background-attachment: scroll;
+      overflow-x: hidden;
+    }
 
-body::before {
-  content: "";
-  position: fixed;
-  inset: 0;
-  background-color: rgba(0, 0, 0, 0.7);
-  pointer-events: none;
-  z-index: -1;
-}
+    .overlay {
+      position: absolute;
+      top: 0; left: 0; right: 0; bottom: 0;
+      background-color: rgba(0, 0, 0, 0.7);
+      pointer-events: none;
+      z-index: 0;
+    }
 
-/* le reste de ton CSS existant */
+    .home-link, .polaroid-gallery, .polaroid, .btn-under {
+      position: relative;
+      z-index: 1;
+    }
 
     .home-link {
-      position: fixed;
-      top: 1rem;
-      left: 1rem;
       background-color: rgba(255, 255, 255, 0.85);
       color: #1c1c1c;
       padding: 0.5rem 1rem;
@@ -51,7 +51,10 @@ body::before {
       border: 1px solid #ffffff;
       backdrop-filter: blur(4px);
       transition: all 0.3s ease;
-      z-index: 10;
+      position: fixed;
+      top: 1rem;
+      left: 1rem;
+      z-index: 2;
     }
 
     .home-link:hover {
@@ -159,6 +162,7 @@ body::before {
   </style>
 </head>
 <body>
+  <div class="overlay"></div>
   <a href="index.html" class="home-link">← Accueil</a>
   <section class="polaroid-gallery">
     <div class="polaroid">
