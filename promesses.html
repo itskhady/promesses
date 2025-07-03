@@ -36,7 +36,7 @@
       z-index: 0;
     }
 
-    .home-link, .polaroid-gallery, .polaroid, .btn-under {
+    .home-link, .polaroid-gallery, .polaroid, .btn-under, .about-section {
       position: relative;
       z-index: 1;
     }
@@ -72,6 +72,7 @@
       gap: 2rem;
       max-width: 1200px;
       margin-top: 5rem;
+      padding-bottom: 4rem; /* espace en bas pour scroll */
     }
 
     .polaroid {
@@ -143,6 +144,25 @@
       box-shadow: 0 6px 14px rgba(255, 255, 255, 0.3);
     }
 
+    .about-section {
+      padding: 4rem 1rem;
+      max-width: 800px;
+      margin: 0 auto 2rem auto;
+      color: #fff;
+      text-align: center;
+    }
+
+    .about-section h2 {
+      font-size: 1.75rem;
+      margin-bottom: 1.25rem;
+    }
+
+    .about-section p {
+      font-size: 1rem;
+      line-height: 1.6;
+      color: #ddd;
+    }
+
     @media (max-width: 768px) {
       .polaroid-gallery {
         flex-direction: row;
@@ -206,6 +226,13 @@
       </div>
       <a href="#" class="btn-under">FATY ET OULY</a>
     </div>
+  </section>
+
+  <section class="about-section">
+    <h2>About UNWELL</h2>
+    <p>
+      UNWELL is not your average beverage brand. We craft functional drinks that embrace the complexity of human emotion, blending innovative flavors with wellness benefits to inspire your everyday life.
+    </p>
   </section>
 </body>
 </html>
