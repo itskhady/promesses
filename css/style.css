@@ -634,7 +634,7 @@ p.tagline {
 }
 .mes-ecrits-item .title:hover {
   background-color: var(--accent-color);
-  color: #fff;
+  color: #0a0a0a;
 }
 
 /* === MODAL POPUP MES ÉCRITS === */
@@ -757,5 +757,5 @@ p.tagline {
   transition: background-color 0.3s;
 }
 .btn-ecrits:hover {
-  background-color: #fff;
+  background-color: #030303;
 }
