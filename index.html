@@ -34,7 +34,11 @@
         J'aimais te promettre la lune,<br/>
         mais je savais que la nuit ne tomberait jamais.
       </p>
-      <button class="btn-buy">LES PROMESSES</button>
+      <div class="hero-buttons">
+  <button class="btn-buy">MES PHOTOS</button>
+  <button class="btn-ecrits">MES ÉCRITS</button>
+</div>
+
       <div class="footer">&copy; Khadyetou SILMAN</div>
     </div>
   </section>
@@ -156,7 +160,7 @@
   </div>
 </section>
 
-<section class="mes-ecrits-section">
+<section id="mes-ecrits-section" class="mes-ecrits-section">
   <h2>Mes Écrits</h2>
   <div class="mes-ecrits-carousel">
 
@@ -259,6 +263,14 @@
       document.getElementById('amadou-et-amina')
               .scrollIntoView({ behavior: 'smooth' });
     });
+
+    // Scroll smooth vers "MES ÉCRITS"
+document.querySelector('.btn-ecrits').addEventListener('click', function(e){
+  e.preventDefault();
+  document
+    .getElementById('mes-ecrits-section')
+    .scrollIntoView({ behavior: 'smooth' });
+});
 
     // Initialisation du slider "Reviens Astou"
     const astouMain = new Swiper('#reviens-astou .slider-main', {

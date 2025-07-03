@@ -737,3 +737,25 @@ p.tagline {
     font-size: 1.25rem;
   }
 }
+
+/* === HERO : mise en ligne des deux boutons === */
+.hero-buttons {
+  display: flex;
+  gap: 1rem;
+  margin-bottom: 1.5rem; /* espace sous les boutons */
+}
+
+.btn-ecrits {
+  font-size: 1.5rem;
+  font-weight: bold;
+  background-color: var(--accent-color);
+  color: #000;
+  border: none;
+  padding: 0.6rem 1.25rem;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+.btn-ecrits:hover {
+  background-color: #e600e6;
+}
