@@ -8,7 +8,6 @@
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700;900&display=swap" rel="stylesheet" />
   <style>
     body {
-      /* background: #1c1c1c !important; */
       color: #ffffff;
       margin: 0;
       padding: 2rem 1rem;
@@ -19,24 +18,35 @@
       min-height: 100vh;
       box-sizing: border-box;
     }
-
+body::before {
+  content: "";
+  position: fixed;
+  inset: 0;
+  background-color: rgba(0, 0, 0, 0.7);
+  pointer-events: none;
+  z-index: -1;
+}
     .home-link {
       position: fixed;
       top: 1rem;
       left: 1rem;
-      background-color: #ff00ff;
-      color: #1c1c1c;;
+      background-color: rgba(255, 255, 255, 0.85);
+      color: #1c1c1c;
       padding: 0.5rem 1rem;
-      border-radius: 20px;
+      border-radius: 50px;
       text-decoration: none;
       font-size: 0.9rem;
       font-weight: bold;
-      transition: background-color 0.3s ease;
+      border: 1px solid #ffffff;
+      backdrop-filter: blur(4px);
+      transition: all 0.3s ease;
       z-index: 10;
     }
 
     .home-link:hover {
-      background-color: #cc00cc;
+      background-color: rgba(255, 255, 255, 1);
+      transform: scale(1.05);
+      box-shadow: 0 6px 14px rgba(255, 255, 255, 0.3);
     }
 
     .polaroid-gallery {
@@ -59,7 +69,7 @@
 
     .polaroid:hover {
       transform: scale(1.02);
-      box-shadow: 0 12px 24px rgba(255, 0, 255, 0.3);
+      box-shadow: 0 12px 24px rgba(255, 255, 255, 0.3);
     }
 
     .photo-stack {
@@ -101,20 +111,21 @@
       display: inline-block;
       font-size: 0.9rem;
       font-weight: 600;
-      background-color: #ff00ff;
+      background-color: rgba(255, 255, 255, 0.85);
       color: #1c1c1c;
-      border: none;
-      padding: 0.3rem 0.9rem;
-      border-radius: 30px;
+      border: 1px solid #ffffff;
+      padding: 0.4rem 1rem;
+      border-radius: 50px;
       text-decoration: none;
       transition: all 0.3s ease;
       margin-top: 0.5rem;
+      backdrop-filter: blur(4px);
     }
 
     .btn-under:hover {
-      background-color: #cc00cc;
+      background-color: rgba(255, 255, 255, 1);
       transform: scale(1.06);
-      box-shadow: 0 6px 14px rgba(255, 0, 255, 0.2);
+      box-shadow: 0 6px 14px rgba(255, 255, 255, 0.3);
     }
 
     @media (max-width: 768px) {
@@ -141,41 +152,41 @@
   <section class="polaroid-gallery">
     <div class="polaroid">
       <div class="photo-stack">
-        <img src="assets/Pictures/PC1/IMG_1882.JPG" alt="Promesse 1a">
-        <img src="assets/Pictures/PC1/IMG_1886.JPG" alt="Promesse 1b">
-        <img src="assets/Pictures/PC1/IMG_1884.JPG" alt="Promesse 1c">
+        <img src="assets/Pictures/PC1/IMG_1882.JPG" alt="Promesse 1a" />
+        <img src="assets/Pictures/PC1/IMG_1886.JPG" alt="Promesse 1b" />
+        <img src="assets/Pictures/PC1/IMG_1884.JPG" alt="Promesse 1c" />
       </div>
       <a href="#" class="btn-under">AMADOU ET AMINA</a>
     </div>
     <div class="polaroid">
       <div class="photo-stack">
-        <img src="assets/Pictures/PC2/IMG_1887.JPG" alt="Promesse 2a">
-        <img src="assets/Pictures/PC2/IMG_1888.JPG" alt="Promesse 2b">
-        <img src="assets/Pictures/PC2/IMG_1890.JPG" alt="Promesse 2c">
+        <img src="assets/Pictures/PC2/IMG_1887.JPG" alt="Promesse 2a" />
+        <img src="assets/Pictures/PC2/IMG_1888.JPG" alt="Promesse 2b" />
+        <img src="assets/Pictures/PC2/IMG_1890.JPG" alt="Promesse 2c" />
       </div>
       <a href="#" class="btn-under">REVIENS ASTOU</a>
     </div>
     <div class="polaroid">
       <div class="photo-stack">
-        <img src="assets/Pictures/PC3/IMG_4803.JPG" alt="Promesse 3a">
-        <img src="assets/Pictures/PC3/IMG_4804.JPG" alt="Promesse 3b">
-        <img src="assets/Pictures/PC3/IMG_4808.JPG" alt="Promesse 3c">
+        <img src="assets/Pictures/PC3/IMG_4803.JPG" alt="Promesse 3a" />
+        <img src="assets/Pictures/PC3/IMG_4804.JPG" alt="Promesse 3b" />
+        <img src="assets/Pictures/PC3/IMG_4808.JPG" alt="Promesse 3c" />
       </div>
       <a href="#" class="btn-under">DANS L'OMBRE D'ALIOUNE</a>
     </div>
     <div class="polaroid">
       <div class="photo-stack">
-        <img src="assets/Pictures/PC4/IMG_4811.JPG" alt="Promesse 4a">
-        <img src="assets/Pictures/PC4/IMG_4815.JPG" alt="Promesse 4b">
-        <img src="assets/Pictures/PC4/IMG_5233.JPG" alt="Promesse 4c">
+        <img src="assets/Pictures/PC4/IMG_4811.JPG" alt="Promesse 4a" />
+        <img src="assets/Pictures/PC4/IMG_4815.JPG" alt="Promesse 4b" />
+        <img src="assets/Pictures/PC4/IMG_5233.JPG" alt="Promesse 4c" />
       </div>
       <a href="#" class="btn-under">LE SECRET DE NDEYE</a>
     </div>
     <div class="polaroid">
       <div class="photo-stack">
-        <img src="assets/Pictures/PC5/IMG_0026.JPG" alt="Promesse 5a">
-        <img src="assets/Pictures/PC5/IMG_4820.JPG" alt="Promesse 5b">
-        <img src="assets/Pictures/PC5/IMG_4821.JPG" alt="Promesse 5c">
+        <img src="assets/Pictures/PC5/IMG_0026.JPG" alt="Promesse 5a" />
+        <img src="assets/Pictures/PC5/IMG_4820.JPG" alt="Promesse 5b" />
+        <img src="assets/Pictures/PC5/IMG_4821.JPG" alt="Promesse 5c" />
       </div>
       <a href="#" class="btn-under">FATY ET OULY</a>
     </div>
