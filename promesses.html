@@ -7,17 +7,25 @@
   <link rel="stylesheet" href="css/style.css" />
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700;900&display=swap" rel="stylesheet" />
   <style>
-    body {
-      color: #ffffff;
-      margin: 0;
-      padding: 2rem 1rem;
-      font-family: 'Inter', sans-serif;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      min-height: 100vh;
-      box-sizing: border-box;
-    }
+ body {
+  position: relative;         /* pour que ::before soit relatif */
+  height: 100%;
+  margin: 0;
+  padding: 2rem 1rem;
+  font-family: 'Inter', sans-serif;
+  color: #ffffff;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  box-sizing: border-box;
+
+  background-image: url('assets/Pictures/PC1/IMG_1882.JPG'); /* chemin simplifié */
+  background-repeat: no-repeat;
+  background-position: center center;
+  background-size: cover;
+  background-attachment: scroll; /* important pour mobile */
+}
+
 body::before {
   content: "";
   position: fixed;
@@ -26,6 +34,9 @@ body::before {
   pointer-events: none;
   z-index: -1;
 }
+
+/* le reste de ton CSS existant */
+
     .home-link {
       position: fixed;
       top: 1rem;
