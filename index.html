@@ -1,14 +1,19 @@
+<!-- index.html -->
 <!DOCTYPE html>
 <html lang="fr">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>PROMESSES CONSUMÉES</title>
-  <link rel="stylesheet" href="css/style.css" />
-  <link
-    href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700;900&display=swap"
-    rel="stylesheet"
-  />
+
+  <!-- CSS principal -->
+  <link rel="stylesheet" href="css/style.css"/>
+
+  <!-- Font Inter -->
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700;900&display=swap" rel="stylesheet"/>
+
+  <!-- Swiper CSS -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper/swiper-bundle.min.css"/>
 </head>
 <body>
   <!-- HERO SECTION -->
@@ -17,7 +22,7 @@
       <div class="logo">EXPOSITION</div>
       <h1>PROMESSES CONSUMÉES</h1>
       <p class="tagline">
-        J'aimais te promettre la lune,<br />
+        J'aimais te promettre la lune,<br/>
         mais je savais que la nuit ne tomberait jamais.
       </p>
       <button class="btn-buy">LES PROMESSES</button>
@@ -29,36 +34,85 @@
   <section class="about-section">
     <h2>About UNWELL</h2>
     <p>
-      UNWELL is not your average beverage brand. We craft functional drinks that embrace the complexity
-      of human emotion...
+      UNWELL is not your average beverage brand. We craft functional drinks that embrace the complexity of human emotion...
     </p>
   </section>
 
   <!-- MARQUEE DÉFILANTE -->
   <div class="scrolling-banner">
     <div class="scrolling-text">
-      <span>PROMESSES CONSUMÉES  PROMESSES CONSUMÉES  PROMESSES CONSUMÉES  </span>
+      <span>
+        PROMESSES CONSUMÉES &nbsp; PROMESSES CONSUMÉES &nbsp; PROMESSES CONSUMÉES &nbsp;
+      </span>
     </div>
   </div>
 
-  <!-- SECTION “LES PROMESSES” VISIBLE -->
+  <!-- SECTION “LES PROMESSES” -->
   <section id="amadou-et-amina" class="promises-section amadou-amina">
-    <h2>Amadou et Amina</h2>
+    <h2>LES PROMESSES</h2>
     <div class="promises-grid">
-      <img src="assets/Pictures/PC1/IMG_1882.JPG" alt="Image 1" />
-      <img src="assets/Pictures/PC1/IMG_6583.JPG" alt="Image 2" />
-      <img src="assets/Pictures/PC1/IMG_1886.JPG" alt="Image 3" />
-      <img src="assets/Pictures/PC1/IMG_1884.JPG" alt="Image 4" />
-      <!-- Ajoute d’autres <img> si nécessaire -->
+      <img src="assets/Pictures/PC1/IMG_1882.JPG" alt="Image 1"/>
+      <img src="assets/Pictures/PC1/IMG_1884.JPG" alt="Image 2"/>
+      <img src="assets/Pictures/PC1/IMG_1886.JPG" alt="Image 3"/>
+      <img src="assets/Pictures/PC1/IMG_6583.JPG" alt="Image 4"/>
+      <!-- Ajoute d’autres Pictures/PC1/IMG_1884.JPG si nécessaire -->
     </div>
   </section>
 
+  <!-- SECTION REVIENS ASTOU -->
+  <section id="reviens-astou" class="slider-section">
+    <div class="swiper slider-main">
+      <div class="swiper-wrapper">
+        <div class="swiper-slide"><img src="assets/Pictures/PC2/IMG_1887.JPG" alt="Astou 1"/></div>
+        <div class="swiper-slide"><img src="assets/Pictures/PC2/IMG_1888.JPG" alt="Astou 2"/></div>
+        <div class="swiper-slide"><img src="assets/Pictures/PC2/IMG_1890.JPG" alt="Astou 3"/></div>
+        <div class="swiper-slide"><img src="assets/Pictures/PC2/IMG_6020.JPG" alt="Astou 4"/></div>
+        <div class="swiper-slide"><img src="assets/Pictures/PC2/IMG_8754.JPG" alt="Astou 5"/></div>
+      </div>
+      <!-- Pagination mobile -->
+      <div class="swiper-pagination"></div>
+    </div>
+
+    <!-- Légende fixe -->
+    <p class="slide-caption">Reviens Astou</p>
+
+    <!-- Thumbnails desktop -->
+    <div class="slider-thumbs">
+      <img src="assets/Pictures/PC2/IMG_1887.JPG" alt="Thumb 1"/>
+      <img src="assets/Pictures/PC2/IMG_1888.JPG" alt="Thumb 2"/>
+      <img src="assets/Pictures/PC2/IMG_1890.JPG" alt="Thumb 3"/>
+      <img src="assets/Pictures/PC2/IMG_6020.JPG" alt="Thumb 4"/>
+      <img src="assets/Pictures/PC2/IMG_8754.JPG" alt="Thumb 5"/>
+    </div>
+  </section>
+
+  <!-- Swiper JS -->
+  <script src="https://cdn.jsdelivr.net/npm/swiper/swiper-bundle.min.js"></script>
   <script>
-    document.querySelector('.btn-buy').addEventListener('click', function (e) {
+    // Scroll smooth vers "LES PROMESSES"
+    document.querySelector('.btn-buy').addEventListener('click', function(e){
       e.preventDefault();
-      document
-        .getElementById('amadou-et-amina')
-        .scrollIntoView({ behavior: 'smooth' });
+      document.getElementById('amadou-et-amina')
+              .scrollIntoView({ behavior: 'smooth' });
+    });
+
+    // Initialisation du slider "Reviens Astou"
+    const astouMain = new Swiper('#reviens-astou .slider-main', {
+      loop: true,
+      autoplay: { delay: 1000, disableOnInteraction: false },
+      pagination: {
+        el: '#reviens-astou .swiper-pagination',
+        clickable: true
+      }
+    });
+
+    // Synchronisation manuelle des miniatures
+    const thumbs = document.querySelectorAll('#reviens-astou .slider-thumbs img');
+    thumbs.forEach((thumb, idx) => {
+      thumb.addEventListener('click', () => astouMain.slideToLoop(idx));
+    });
+    astouMain.on('slideChange', () => {
+      thumbs.forEach((t, i) => t.classList.toggle('active-thumb', i === astouMain.realIndex));
     });
   </script>
 </body>
