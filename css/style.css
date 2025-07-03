@@ -1,125 +1,197 @@
-    :root {
-      --text-color: #fff;
-      --accent-color: #ff00ff;
-    }
+/* ========== style.css ========== */
 
-    * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
-    }
+/* Variables */
+:root {
+  --text-color: #fff;
+  --accent-color: #ff00ff;
+}
 
-    html, body {
-      height: 100%;
-      overflow-x: hidden;
-    }
+/* Reset */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+html, body {
+  height: 100%;
+  overflow-x: hidden;
+}
+body {
+  color: var(--text-color);
+  font-family: 'Inter', sans-serif;
+  text-align: center;
+  margin: 0;
+}
 
-    body {
-      background: url('../assets/Pictures/PC1/IMG_1882.JPG') no-repeat center center fixed;
-      background-size: cover;
-      color: var(--text-color);
-      font-family: 'Inter', sans-serif;
-      text-align: center;
-      margin: 0;
-    }
+/* === HERO SECTION === */
+.hero-section {
+  background: url('../assets/Pictures/PC1/IMG_1882.JPG') no-repeat center center fixed;
+  background-size: cover;
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
 
-    .container {
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
-      align-items: center;
-      min-height: 100vh;
-      padding: 2rem 1rem;
-      opacity: 0;
-      transform: translateY(20px);
-      animation: fadeInUp 1s ease forwards;
-      animation-delay: 0.2s;
-    }
+/* Conteneur animé */
+.container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  padding: 2rem 1rem;
+  opacity: 0;
+  transform: translateY(20px);
+  animation: fadeInUp 1s ease forwards;
+  animation-delay: 0.2s;
+}
+@keyframes fadeInUp {
+  to { opacity: 1; transform: none; }
+}
 
-    @keyframes fadeInUp {
-      to {
-        opacity: 1;
-        transform: none;
-      }
-    }
+/* Logo */
+.logo {
+  font-size: 1.5rem;
+  font-weight: 900;
+  letter-spacing: 2px;
+  color: var(--accent-color);
+  margin-bottom: 1.5rem;
+  background-color: rgba(0,0,0,0.6);
+  padding: 0.5rem 1rem;
+  border-radius: 4px;
+}
 
-    .logo {
-      font-size: 1.5rem;
-      font-weight: 900;
-      letter-spacing: 2px;
-      color: var(--accent-color);
-      margin-bottom: 1.5rem;
-      background-color: rgba(0, 0, 0, 0.6);
-      padding: 0.5rem 1rem;
-      border-radius: 4px;
-    }
+/* Titre principal */
+h1 {
+  font-size: 8vw;
+  font-weight: 900;
+  line-height: 1.1;
+  margin-bottom: 1.5rem;
+  background-color: rgba(0,0,0,0.6);
+  padding: 0.5rem 1rem;
+  border-radius: 4px;
+}
 
-    h1 {
-      font-size: 8vw;
-      font-weight: 900;
-      line-height: 1.1;
-      margin-bottom: 1.5rem;
-      background-color: rgba(0, 0, 0, 0.6);
-      padding: 0.5rem 1rem;
-      border-radius: 4px;
-    }
+/* Tagline */
+p.tagline {
+  font-size: 1.5rem;
+  color: #ddd;
+  max-width: 600px;
+  background-color: rgba(0,0,0,0.6);
+  padding: 0.5rem 1rem;
+  border-radius: 4px;
+  margin-bottom: 1.5rem;
+}
 
-    p.tagline {
-      font-size: 1.5rem;
-      color: #ddd;
-      max-width: 600px;
-      background-color: rgba(0, 0, 0, 0.6);
-      padding: 0.5rem 1rem;
-      border-radius: 4px;
-      margin-bottom: 1.5rem;
-    }
+/* Bouton */
+.btn-buy {
+  font-size: 1.5rem;
+  font-weight: bold;
+  background-color: var(--accent-color);
+  color: #000;
+  border: none;
+  padding: 0.6rem 1.25rem;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+.btn-buy:hover {
+  background-color: #e600e6;
+}
 
-    .btn-buy {
-      font-size: 1.5rem;
-      font-weight: bold;
-      background-color: var(--accent-color);
-      color: #000;
-      border: none;
-      padding: 0.6rem 1.25rem;
-      border-radius: 4px;
-      cursor: pointer;
-      text-decoration: none;
-      transition: background-color 0.3s;
-    }
+/* Footer */
+.footer {
+  margin-top: 3rem;
+  font-size: 1rem;
+  color: #ccc;
+  background-color: rgba(0,0,0,0.6);
+  padding: 0.25rem 0.75rem;
+  border-radius: 4px;
+}
 
-    .btn-buy:hover {
-      background-color: #e600e6;
-    }
+/* === ABOUT SECTION === */
+.about-section {
+  background-color: #4DA57A;  /* <-- ta couleur ici */
+  padding: 4rem 1rem;
+  color: #fff;
+}
+.about-section h2 {
+  font-size: 1.75rem;
+  margin-bottom: 1.25rem;
+}
+.about-section p {
+  font-size: 1rem;
+  line-height: 1.6;
+  color: #f0f0f0;
+}
 
-    .footer {
-      margin-top: 3rem;
-      font-size: 1rem;
-      color: #ccc;
-      background-color: rgba(0, 0, 0, 0.6);
-      padding: 0.25rem 0.75rem;
-      border-radius: 4px;
-    }
+/* Responsive titre héro */
+@media (max-width: 600px) {
+  h1 {
+    font-size: 10vw;
+  }
+}
 
-    .about-section {
-      padding: 4rem 1rem;
-      max-width: 800px;
-      margin: 0 auto;
-      color: #fff;
-    }
+/* === SECTION “LES PROMESSES” === */
+.promises-section {
+  display: none;
+  padding: 4rem 1rem;
+  min-height: 80vh;
+  background-color: #000;
+  color: #fff;
+}
+.promises-section h2 {
+  font-size: 8vw;
+  font-weight: 900;
+  margin-bottom: 2rem;
+  line-height: 1.1;
+}
 
-    .about-section h2 {
-      font-size: 1.75rem;
-      margin-bottom: 1.25rem;
-    }
+/* Grille responsive */
+.promises-grid {
+  display: grid;
+  gap: 1rem;
+  width: 100%;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+}
+@media (max-width: 600px) {
+  .promises-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  .promises-section h2 {
+    font-size: 10vw;
+  }
+}
+.promises-grid img {
+  width: 100%;
+  height: auto;
+  object-fit: cover;
+  border-radius: 8px;
+}
 
-    .about-section p {
-      font-size: 1rem;
-      line-height: 1.6;
-      color: #ddd;
-    }
+/* === BANDE DÉFILANTE === */
+.scrolling-banner {
+  width: 100%;
+  overflow: hidden;
+  background-color: #000;
+  padding: 1rem 0;
+  border-top: 2px solid #fff;
+  border-bottom: 2px solid #fff;
+}
 
-    @media (max-width: 600px) {
-      h1 {
-        font-size: 10vw;
-      }
-    }
+.scrolling-text {
+  display: inline-block;
+  white-space: nowrap;
+  animation: marquee 15s linear infinite;
+  font-size: 2rem;
+  font-weight: 900;
+  color: #fff;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+}
+
+@keyframes marquee {
+  0%   { transform: translateX(100%); }
+  100% { transform: translateX(-100%); }
+}

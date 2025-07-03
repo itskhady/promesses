@@ -1,36 +1,28 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="fr">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>PROMESSES CONSUMÉES</title>
   <link rel="stylesheet" href="css/style.css" />
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700;900&display=swap" rel="stylesheet" />
-  <style>
-    /* Style pour l'overlay de fondu */
-    #fade-overlay {
-      position: fixed;
-      top: 0; left: 0; right: 0; bottom: 0;
-      background: #000;
-      opacity: 0;
-      pointer-events: none;
-      transition: opacity 0.5s ease;
-      z-index: 9999;
-    }
-  </style>
 </head>
 <body>
-  <div class="container">
-    <div class="logo">EXPOSITION</div>
-    <h1>PROMESSES CONSUMÉES</h1>
-    <p class="tagline">
-      J'aimais te promettre la lune,<br />
-      mais je savais que la nuit ne tomberait jamais.
-    </p>
-    <a href="promesses.html" class="btn-buy">LES PROMESSES</a>
-    <div class="footer">&copy; Khadyetou SILMAN </div>
-  </div>
+  <!-- HERO -->
+  <section class="hero-section">
+    <div class="container">
+      <div class="logo">EXPOSITION</div>
+      <h1>PROMESSES CONSUMÉES</h1>
+      <p class="tagline">
+        J'aimais te promettre la lune,<br />
+        mais je savais que la nuit ne tomberait jamais.
+      </p>
+      <button class="btn-buy">LES PROMESSES</button>
+      <div class="footer">&copy; Khadyetou SILMAN</div>
+    </div>
+  </section>
 
+  <!-- ABOUT -->
   <section class="about-section">
     <h2>About UNWELL</h2>
     <p>
@@ -38,17 +30,42 @@
     </p>
   </section>
 
-  <div id="fade-overlay"></div>
+  <!-- === BANDE DÉFILANTE “PROMESSES CONSUMÉES” === -->
+<div class="scrolling-banner">
+  <div class="scrolling-text">
+    <span>
+      PROMESSES CONSUMÉES &nbsp; &nbsp; PROMESSES CONSUMÉES &nbsp; &nbsp; PROMESSES CONSUMÉES &nbsp; &nbsp;
+    </span>
+  </div>
+</div>
+
+<!-- === SECTION AMADOU & AMINA === -->
+<section id="amadou-et-amina" class="amadou-amina">
+  <!-- ton contenu… -->
+</section>
+
+  <!-- PROMESSES (cachée au chargement puis affichée) -->
+  <section id="promises-section" class="promises-section">
+    <h2>AMADOU ET AMINA</h2>
+    <div class="promises-grid">
+      <img src="assets/Pictures/PC1/IMG_1882.JPG" alt="Image 1">
+      <img src="assets/Pictures/PC1/IMG_6583.JPG" alt="Image 2">
+      <img src="assets/Pictures/PC1/IMG_1886.JPG" alt="Image 3">
+      <img src="assets/Pictures/PC1/IMG_1884.JPG" alt="Image 4">
+      <!-- + d’images si besoin -->
+    </div>
+  </section>
 
   <script>
-    document.querySelector('.btn-buy').addEventListener('click', function(event) {
-      event.preventDefault();
-      const overlay = document.getElementById('fade-overlay');
-      overlay.style.pointerEvents = 'auto';
-      overlay.style.opacity = '1';
-      setTimeout(() => {
-        window.location.href = this.href;
-      }, 200);
+    // cache la section au chargement
+    const sec = document.getElementById('promises-section');
+    sec.style.display = 'none';
+
+    // au clic, affiche et scroll
+    document.querySelector('.btn-buy').addEventListener('click', e => {
+      e.preventDefault();
+      sec.style.display = 'block';
+      sec.scrollIntoView({ behavior: 'smooth' });
     });
   </script>
 </body>
