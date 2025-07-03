@@ -4,7 +4,6 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Promesses</title>
-  <link rel="stylesheet" href="css/style.css" />
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700;900&display=swap" rel="stylesheet" />
   <style>
     body {
@@ -36,7 +35,7 @@
       z-index: 0;
     }
 
-    .home-link, .polaroid-gallery, .polaroid, .btn-under, .about-section {
+    .home-link, .btn-under, .about-section {
       position: relative;
       z-index: 1;
     }
@@ -65,22 +64,20 @@
     }
 
     .polaroid-gallery {
-      display: flex;
-      justify-content: center;
-      align-items: flex-start;
-      flex-wrap: wrap;
-      gap: 2rem;
       max-width: 1200px;
       margin-top: 5rem;
-      padding-bottom: 4rem; /* espace en bas pour scroll */
+      padding-bottom: 4rem;
+      position: relative;
     }
 
     .polaroid {
-      padding: 0;
       width: 180px;
+      margin-bottom: 20px;
+      padding: 0;
       text-align: center;
-      position: relative;
+      position: absolute;
       transition: transform 0.3s ease, box-shadow 0.3s ease;
+      box-sizing: border-box;
     }
 
     .polaroid:hover {
@@ -136,6 +133,8 @@
       transition: all 0.3s ease;
       margin-top: 0.5rem;
       backdrop-filter: blur(4px);
+      position: relative;
+      z-index: 1;
     }
 
     .btn-under:hover {
@@ -150,6 +149,8 @@
       margin: 0 auto 2rem auto;
       color: #fff;
       text-align: center;
+      position: relative;
+      z-index: 1;
     }
 
     .about-section h2 {
@@ -165,14 +166,13 @@
 
     @media (max-width: 768px) {
       .polaroid-gallery {
-        flex-direction: row;
-        flex-wrap: wrap;
-        justify-content: center;
-        gap: 1.2rem;
+        margin-top: 3rem;
+        padding-bottom: 4rem;
       }
 
       .polaroid {
         width: 140px;
+        margin-bottom: 24px; /* plus d’espace vertical */
       }
 
       .btn-under {
@@ -188,41 +188,41 @@
   <section class="polaroid-gallery">
     <div class="polaroid">
       <div class="photo-stack">
-        <img src="assets/Pictures/PC1/IMG_1882.JPG" alt="Promesse 1a" />
-        <img src="assets/Pictures/PC1/IMG_1886.JPG" alt="Promesse 1b" />
-        <img src="assets/Pictures/PC1/IMG_1884.JPG" alt="Promesse 1c" />
+        <img src="assets/Pictures/PC1/IMG_1882.JPG" alt="Promesse 1a" loading="lazy" />
+        <img src="assets/Pictures/PC1/IMG_1886.JPG" alt="Promesse 1b" loading="lazy" />
+        <img src="assets/Pictures/PC1/IMG_1884.JPG" alt="Promesse 1c" loading="lazy" />
       </div>
       <a href="#" class="btn-under">AMADOU ET AMINA</a>
     </div>
     <div class="polaroid">
       <div class="photo-stack">
-        <img src="assets/Pictures/PC2/IMG_1887.JPG" alt="Promesse 2a" />
-        <img src="assets/Pictures/PC2/IMG_1888.JPG" alt="Promesse 2b" />
-        <img src="assets/Pictures/PC2/IMG_1890.JPG" alt="Promesse 2c" />
+        <img src="assets/Pictures/PC2/IMG_1887.JPG" alt="Promesse 2a" loading="lazy" />
+        <img src="assets/Pictures/PC2/IMG_1888.JPG" alt="Promesse 2b" loading="lazy" />
+        <img src="assets/Pictures/PC2/IMG_1890.JPG" alt="Promesse 2c" loading="lazy" />
       </div>
       <a href="#" class="btn-under">REVIENS ASTOU</a>
     </div>
     <div class="polaroid">
       <div class="photo-stack">
-        <img src="assets/Pictures/PC3/IMG_4803.JPG" alt="Promesse 3a" />
-        <img src="assets/Pictures/PC3/IMG_4804.JPG" alt="Promesse 3b" />
-        <img src="assets/Pictures/PC3/IMG_4808.JPG" alt="Promesse 3c" />
+        <img src="assets/Pictures/PC3/IMG_4803.JPG" alt="Promesse 3a" loading="lazy" />
+        <img src="assets/Pictures/PC3/IMG_4804.JPG" alt="Promesse 3b" loading="lazy" />
+        <img src="assets/Pictures/PC3/IMG_4808.JPG" alt="Promesse 3c" loading="lazy" />
       </div>
       <a href="#" class="btn-under">DANS L'OMBRE D'ALIOUNE</a>
     </div>
     <div class="polaroid">
       <div class="photo-stack">
-        <img src="assets/Pictures/PC4/IMG_4811.JPG" alt="Promesse 4a" />
-        <img src="assets/Pictures/PC4/IMG_4815.JPG" alt="Promesse 4b" />
-        <img src="assets/Pictures/PC4/IMG_5233.JPG" alt="Promesse 4c" />
+        <img src="assets/Pictures/PC4/IMG_4811.JPG" alt="Promesse 4a" loading="lazy" />
+        <img src="assets/Pictures/PC4/IMG_4815.JPG" alt="Promesse 4b" loading="lazy" />
+        <img src="assets/Pictures/PC4/IMG_5233.JPG" alt="Promesse 4c" loading="lazy" />
       </div>
       <a href="#" class="btn-under">LE SECRET DE NDEYE</a>
     </div>
     <div class="polaroid">
       <div class="photo-stack">
-        <img src="assets/Pictures/PC5/IMG_0026.JPG" alt="Promesse 5a" />
-        <img src="assets/Pictures/PC5/IMG_4820.JPG" alt="Promesse 5b" />
-        <img src="assets/Pictures/PC5/IMG_4821.JPG" alt="Promesse 5c" />
+        <img src="assets/Pictures/PC5/IMG_0026.JPG" alt="Promesse 5a" loading="lazy" />
+        <img src="assets/Pictures/PC5/IMG_4820.JPG" alt="Promesse 5b" loading="lazy" />
+        <img src="assets/Pictures/PC5/IMG_4821.JPG" alt="Promesse 5c" loading="lazy" />
       </div>
       <a href="#" class="btn-under">FATY ET OULY</a>
     </div>
@@ -234,5 +234,20 @@
       UNWELL is not your average beverage brand. We craft functional drinks that embrace the complexity of human emotion, blending innovative flavors with wellness benefits to inspire your everyday life.
     </p>
   </section>
+
+  <!-- Masonry CDN -->
+  <script src="https://unpkg.com/masonry-layout@4/dist/masonry.pkgd.min.js"></script>
+  <script>
+    window.addEventListener('load', () => {
+      const grid = document.querySelector('.polaroid-gallery');
+      const isMobile = window.innerWidth <= 768;
+      new Masonry(grid, {
+        itemSelector: '.polaroid',
+        columnWidth: isMobile ? 140 : 180,
+        gutter: isMobile ? 24 : 20,
+        fitWidth: true,
+      });
+    });
+  </script>
 </body>
 </html>

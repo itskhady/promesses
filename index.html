@@ -6,6 +6,18 @@
   <title>PROMESSES CONSUMÉES</title>
   <link rel="stylesheet" href="css/style.css" />
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700;900&display=swap" rel="stylesheet" />
+  <style>
+    /* Style pour l'overlay de fondu */
+    #fade-overlay {
+      position: fixed;
+      top: 0; left: 0; right: 0; bottom: 0;
+      background: #000;
+      opacity: 0;
+      pointer-events: none;
+      transition: opacity 0.5s ease;
+      z-index: 9999;
+    }
+  </style>
 </head>
 <body>
   <div class="container">
@@ -13,8 +25,7 @@
     <h1>PROMESSES CONSUMÉES</h1>
     <p class="tagline">
       J'aimais te promettre la lune,<br />
-    mais je savais que
-      la nuit ne tomberait jamais.
+      mais je savais que la nuit ne tomberait jamais.
     </p>
     <a href="promesses.html" class="btn-buy">LES PROMESSES</a>
     <div class="footer">&copy; Khadyetou SILMAN </div>
@@ -26,5 +37,19 @@
       UNWELL is not your average beverage brand. We craft functional drinks that embrace the complexity of human emotion...
     </p>
   </section>
+
+  <div id="fade-overlay"></div>
+
+  <script>
+    document.querySelector('.btn-buy').addEventListener('click', function(event) {
+      event.preventDefault();
+      const overlay = document.getElementById('fade-overlay');
+      overlay.style.pointerEvents = 'auto';
+      overlay.style.opacity = '1';
+      setTimeout(() => {
+        window.location.href = this.href;
+      }, 200);
+    });
+  </script>
 </body>
 </html>
