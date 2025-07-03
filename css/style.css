@@ -292,3 +292,49 @@ p.tagline {
   opacity: 1;
   border: 2px solid #ff5722;
 }
+
+/* === MAMA’S COUCH VERSION STACKED/GRID === */
+.mamas-couch {
+  background: #F3DDAE;
+  padding: 2rem 1rem;
+}
+.mamas-couch-inner {
+  max-width: 1200px;
+  margin: 0 auto;
+  text-align: center;
+}
+.mamas-title {
+  font-size: 8vw;
+  font-weight: 900;
+  color: #E63900;
+  text-shadow: 2px 2px #4DA57A;
+  margin-bottom: 1rem;
+}
+.mamas-tagline {
+  color: #4DA57A;
+  font-size: 1rem;
+  max-width: 600px;
+  margin: 0 auto 2rem;
+}
+
+/* Images empilées sur mobile */
+.mamas-images {
+  display: flex;
+  flex-direction: column;
+  gap: 8px; /* espace minime */
+}
+.mamas-images img {
+  width: 100%;
+  height: auto;
+  object-fit: cover;
+  border-radius: 4px;
+}
+
+/* Sur desktop : grid 4 colonnes */
+@media (min-width: 768px) {
+  .mamas-images {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 1rem;
+  }
+}
